@@ -28,9 +28,15 @@ class dbLink:
 			print(username)
 		print("--------")
 
-	def add_user(self, username, password):
-		query = "INSERT INTO Users (username, password) VALUES (%s, %s)"
-		parameters = [username, password]
+	def get_users(self):
+		query = "SELECT username, phone FROM Users"
+		result = self._run_query(query, [])
+		print(result)
+		return result
+
+	def add_user(self, username, password, phone):
+		query = "INSERT INTO Users (username, password, phone) VALUES (%s, %s, %s)"
+		parameters = [username, password, phone]
 		result = self._run_query(query, parameters)
 
 	def make_admin(self, username):
@@ -55,14 +61,17 @@ class dbLink:
 		query = "SELECT uuid, time_stamp FROM Events WHERE is_food = 'Y' AND time_stamp > NOW() - INTERVAL %s MINUTE"
 		return self._run_query(query, [time_diff])
 
-	def get_unapproved_events(self):
-		query = "SELECT uuid, time_stamp FROM Events WHERE is_food = '?' ORDER BY time_stamp"
-		return self._run_query(query, [])
+	def get_unapproved_events(self, time_diff):
+		query = "SELECT uuid, time_stamp FROM Events WHERE is_food = '?' AND time_stamp > NOW() - INTERVAL %s MINUTE ORDER BY time_stamp"
+		return self._run_query(query, [time_diff])
 
 	def approve_event(self, uuid):
 		query = "UPDATE Events SET is_food = 'Y' WHERE uuid = %s"
 		result = self._run_query(query, [uuid])
 		print(result)
+	def approve_all_event(self, uuid_list):
+		for uuid in uuid_list:
+			self.approve_event(uuid)
 
 	def new_event(self):
 		query = "INSERT INTO Events (is_food) VALUES ('?')"
@@ -71,25 +80,26 @@ class dbLink:
 def main():
 
 	db_link = dbLink()
-	#db_link.add_user("Rory", "viasat")
-	#db_link.make_admin("Rory")
-	#db_link.add_user("Yoonshik", "ILuvChineseFood")
+	#db_link.add_user("Rory", "viasat", "5713574662")
+	db_link.make_admin("Rory")
+	#db_link.add_user("Yoonshik", "ILuvChineseFood", "7037577461")
+	db_link.get_users()
 	db_link.show_users()
 	print("Getting admins")
 	db_link.get_admins()
 
 	print(db_link.authenticate_user("Rory", "viasat"))
 	print(db_link.authenticate_user("Rory", "hacker"))
-	"""
+
 	print("Testing events system")
 	db_link.new_event()
 	print("Getting unapproved events")
-	unapproved = db_link.get_unapproved_events()
+	unapproved = db_link.get_unapproved_events(time_diff=10)
 	for (uuid, time_stamp) in unapproved:
 		print(str(uuid) + ":" + str(time_stamp))
 		db_link.approve_event(uuid)
 	print("Getting approved events")
 	print(db_link.get_approved_events(2))
-	"""
+
 if __name__ == "__main__":
 	main()

@@ -1,5 +1,6 @@
 #!/usr/bin/python2
 import time, cv2, requests
+from sqlLink import dbLink
 
 class WebLink:
 
@@ -51,10 +52,11 @@ class CamStreamer:
 
 class MotionTracker:
 
-	def __init__(self, cam_stream, web_link):
+	def __init__(self, cam_stream, db_link):
 
 		self.CAM_STREAM = cam_stream
-		self.WEB_LINK = web_link
+		#self.WEB_LINK = web_link
+		self.DB_LINK = db_link
 		self.THRESH_MIN = 100
 		self.THRESH_MAX = 255
 		self.WAIT_INTERVAL = .005
@@ -140,7 +142,10 @@ class MotionTracker:
 				self.CAM_STREAM.save_peek("./webDisplay/webdisplay/static/captured_images/motion.jpg")
 
 				#Send POST
-				self.WEB_LINK.rest_alert()
+				#self.WEB_LINK.rest_alert()
+				
+				#Update SQL Server
+				self.DB_LINK.new_event()
 
 				print("MOTION")
 
@@ -148,7 +153,8 @@ def main():
 	
 	cam_stream = CamStreamer()
 	web_link = WebLink()
-	motion_tracker = MotionTracker(cam_stream, web_link)
+	db_link = dbLink()
+	motion_tracker = MotionTracker(cam_stream, db_link)
 
 	cam_stream.init_cam()
 	motion_tracker.run(False)
