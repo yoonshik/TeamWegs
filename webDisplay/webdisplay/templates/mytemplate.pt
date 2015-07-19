@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this scaffold -->
     <link href="${request.static_url('webdisplay:static/theme.css')}" rel="stylesheet">
-
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -28,9 +28,9 @@
     <script src="//oss.maxcdn.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>   
         
-        
       <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="${request.static_url('webdisplay:static/styles/main.css')}">
+  <script src="${request.static_url('webdisplay:static/polling.js')}">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
