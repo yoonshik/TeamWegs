@@ -34,5 +34,6 @@ def admin_check_motion(request):
     print(request)
     #TODO: authenticate administrator, send alert to users (e-mail?, pushbullet?, other APIs?)
     user_list = db_link.get_users()
+    print(user_list)
     #TODO: gordon, put your thing here and call it with user_list
-    return ""
+    return user_list
