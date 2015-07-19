@@ -67,7 +67,7 @@ class MotionTracker:
 
 		return gray_diff
 
-	def _get_imgdiff_val(self, image):
+	def _get_motion_in_diffed(self, image):
 		
 		(rows, cols) = image.shape
 
@@ -89,7 +89,7 @@ class MotionTracker:
 			gray_diff = self._diff_image(self.WAIT_INTERVAL)
 			thresh_img = self._threshold_img(gray_diff)
 	
-			double_integral = self._get_imgdiff_val(thresh_img)
+			is_motion = self._get_motion_in_diffed(thresh_img)
 
 def main():
 	motion_tracker = MotionTracker()
