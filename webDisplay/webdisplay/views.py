@@ -11,12 +11,12 @@ def motion_detected_view(request):
     return {'project':'webDisplay'}
 
 #POST Handler for admin status check
-@view_config(route_name='check_camera', renderer='json')
+@view_config(route_name='check_camera', renderer='templates/mytemplate.pt')
 def admin_check_motion(request):
-    print(request)
     #TODO: authenticate administrator using SQL class
     #TODO: check SQL server for motion event within time frame
-    return {'authorization':true, 'motion_detected':true}
+    #return {'authorization':true, 'motion_detected':true}
+    return {'project':'webDisplay'}
 
 #POST Handler for admin clicking "YES" on GUI
 @view_config(route_name='alert_users', renderer='json')
