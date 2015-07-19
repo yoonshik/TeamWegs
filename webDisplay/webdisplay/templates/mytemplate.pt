@@ -12,6 +12,19 @@
 
     <!-- Bootstrap core CSS -->
     <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <style is="custom-style">
+    .horizontal-section {
+    }
+    paper-button {
+    }
+    paper-button.colorful {
+      color: #4285f4;
+    }
+    paper-button[raised].colorful {
+      background: #4285f4;
+      color: #fff;
+    }
+  </style> 
 
     <!-- Custom styles for this scaffold -->
     <link href="${request.static_url('webdisplay:static/theme.css')}" rel="stylesheet">
@@ -30,7 +43,6 @@
         
       <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="${request.static_url('webdisplay:static/styles/main.css')}">
-  <script src="${request.static_url('webdisplay:static/polling.js')}">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
@@ -133,9 +145,11 @@
 
             <section data-route="users">
               <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
+                <div class="vertical-section">
+                  <paper-input label="username" id="username" ></paper-input>
+                  <paper-input label="password" id="password" type="password"></paper-input>
+                  <paper-button tabindex="0" raised class="colorful" onclick="doPoll()">Login</paper-button>
+                </div>
               </paper-material>
             </section>
 
@@ -179,7 +193,18 @@
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
-</body>
+  <script>
+    function doPoll(){
+      user = document.getElementById('username');
+      pass = document.getElementById('password');
+      payload = JSON.stringify({username:user, password:pass})
+      $.post('/check_camera', payload, function(data) {
+          console.log(data);
+          setTimeout(doPoll,5000);
+      });
+}
 
+  </script>
+</body>
 
 </html>
