@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Starting the food tracker of doom!"
 #Launch motion tracker
-screen -SL MotionTracker -d -m ./MotionTracker/motion_tracker.py
+screen -SL MotionTracker -d -m ./webDisplay/webdisplay/motion_tracker.py
 echo "Motion tracker started"
 systemctl start mariadb.service
 systemctl status mariadb.service
