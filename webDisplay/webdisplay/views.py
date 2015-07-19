@@ -10,12 +10,11 @@ def my_view(request):
 def motion_detected_view(request):
     return {'project':'webDisplay'}
 
+
+
 #POST Handler for admin status check
 @view_config(route_name='check_camera', renderer='templates/mytemplate.pt')
-def admin_check_motion(request):
-    #TODO: authenticate administrator using SQL class
-    #TODO: check SQL server for motion event within time frame
-    #return {'authorization':true, 'motion_detected':true}
+def motion_detected_view(request):
     return {'project':'webDisplay'}
 
 #POST Handler for admin clicking "YES" on GUI
