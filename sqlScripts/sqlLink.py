@@ -44,6 +44,13 @@ class dbLink:
 		print(result)
 		return result
 
+	def authenticate_user(self, username, password):
+		query = "SELECT username FROM Users WHERE username = %s AND password = %s"
+		parameters = [username, password]
+		result = self._run_query(query, parameters)
+		return len(result) > 0
+		
+
 	def get_approved_events(self, time_diff):
 		query = "SELECT uuid, time_stamp FROM Events WHERE is_food = 'Y' AND time_stamp > NOW() - INTERVAL %s MINUTE"
 		return self._run_query(query, [time_diff])
@@ -71,6 +78,8 @@ def main():
 	print("Getting admins")
 	db_link.get_admins()
 
+	print(db_link.authenticate_user("Rory", "viasat"))
+	print(db_link.authenticate_user("Rory", "hacker"))
 	"""
 	print("Testing events system")
 	db_link.new_event()
