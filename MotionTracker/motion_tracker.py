@@ -8,7 +8,7 @@ class WebLink:
 		#self.TARGET_URL = "http://localhost/motion_detected"
 
 		#Developer Override
-		self.TARGET_URL = "http://45.55.94.247:8080/motion_detected"
+		self.TARGET_URL = "http://localhost:6543/motion_detected"
 
 	def rest_alert(self):
 		try:
