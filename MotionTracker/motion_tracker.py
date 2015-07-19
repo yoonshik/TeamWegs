@@ -8,7 +8,7 @@ class MotionTracker:
 		self.CAM = None
 		self.THRESH_MIN = 100
 		self.THRESH_MAX = 255
-		self.WAIT_INTERVAL = .05
+		self.WAIT_INTERVAL = .005
 		self.NUM_DIFF_THRESHOLD = 80
 
 	def set_cam(self, cam_id):
@@ -17,18 +17,14 @@ class MotionTracker:
 	def init_cam(self):
 		self.CAM = cv2.VideoCapture(self.CAM_ID)
 
-	def display_cam(self):
-		while True:
-			
-			image = self._threshold_img(self._diff_image(.05))
-
-			cv2.imshow("Test output", image)
+	def _display_img(self, image):
+		cv2.imshow("Test output", image)
 	
-			key = cv2.waitKey(1) & 0xFF
-			if key == 27:
-				break;
-
-		cv2.destroyAllWindows()
+		key = cv2.waitKey(1) & 0xFF
+		if key == 27:
+			cv2.destroyAllWindows()
+			return False
+		return True
 
 	def release_cam(self):
 		self.CAM.release()
@@ -71,19 +67,13 @@ class MotionTracker:
 		
 		(rows, cols) = image.shape
 
-		num_different_pixels = 0
+		(non_z_row, non_z_col) = image.nonzero()
 
-		for row in range(rows):
-			for col in range(cols):
-				if image[row,col] > 0:
-					num_different_pixels += 1
-
-		#Debugging print statement
-		print(num_different_pixels)
+		num_different_pixels = len(non_z_row)
 
 		return (self.NUM_DIFF_THRESHOLD < num_different_pixels)
 
-	def run(self):
+	def run(self, show):
 
 		while True:
 			gray_diff = self._diff_image(self.WAIT_INTERVAL)
@@ -91,12 +81,17 @@ class MotionTracker:
 	
 			is_motion = self._get_motion_in_diffed(thresh_img)
 
+			if show:
+				if not self._display_img(thresh_img):
+					break
+
+			print(is_motion)
+
 def main():
 	motion_tracker = MotionTracker()
 
 	motion_tracker.init_cam()
-	motion_tracker.run()
-	#motion_tracker.display_cam()
+	motion_tracker.run(True)
 	motion_tracker.release_cam()
 
 if __name__ == "__main__":
