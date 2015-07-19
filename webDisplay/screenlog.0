@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/usr/bin/pserve", line 9, in <module>
+    load_entry_point('pyramid==1.5.6', 'console_scripts', 'pserve')()
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 58, in main
+    return command.run()
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 328, in run
+    global_conf=vars)
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 363, in loadapp
+    return loadapp(app_spec, name=name, relative_to=relative_to, **kw)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 247, in loadapp
+    return loadobj(APP, uri, name=name, **kw)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 272, in loadobj
+    return context.create()
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 710, in create
+    return self.object_type.invoke(self)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 146, in invoke
+    return fix_call(context.object, context.global_conf, **context.local_conf)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/util.py", line 55, in fix_call
+    val = callable(*args, **kw)
+  File "/root/TeamWegs/webDisplay/webdisplay/__init__.py", line 14, in main
+    config.scan()
+  File "/usr/lib/python2.7/site-packages/pyramid/config/__init__.py", line 930, in scan
+    ignore=ignore)
+  File "/usr/lib/python2.7/site-packages/venusian/__init__.py", line 197, in scan
+    __import__(modname)
+  File "/root/TeamWegs/webDisplay/webdisplay/views.py", line 17
+    if request.method not request.POST:
+                                ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/usr/bin/pserve", line 9, in <module>
+    load_entry_point('pyramid==1.5.6', 'console_scripts', 'pserve')()
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 58, in main
+    return command.run()
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 328, in run
+    global_conf=vars)
+  File "/usr/lib/python2.7/site-packages/pyramid/scripts/pserve.py", line 363, in loadapp
+    return loadapp(app_spec, name=name, relative_to=relative_to, **kw)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 247, in loadapp
+    return loadobj(APP, uri, name=name, **kw)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 272, in loadobj
+    return context.create()
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 710, in create
+    return self.object_type.invoke(self)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py", line 146, in invoke
+    return fix_call(context.object, context.global_conf, **context.local_conf)
+  File "/usr/lib/python2.7/site-packages/paste/deploy/util.py", line 55, in fix_call
+    val = callable(*args, **kw)
+  File "/root/TeamWegs/webDisplay/webdisplay/__init__.py", line 14, in main
+    config.scan()
+  File "/usr/lib/python2.7/site-packages/pyramid/config/__init__.py", line 930, in scan
+    ignore=ignore)
+  File "/usr/lib/python2.7/site-packages/venusian/__init__.py", line 197, in scan
+    __import__(modname)
+  File "/root/TeamWegs/webDisplay/webdisplay/views.py", line 17
+    if request.method not request.POST:
+                                ^
+SyntaxError: invalid syntax
+Starting server in PID 3117.
+serving on http://0.0.0.0:6543

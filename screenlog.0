@@ -1,0 +1,598 @@
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:2447): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:2447): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+OpenCV Error: Assertion failed (scn == 3 || scn == 4) in cvtColor, file /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp, line 3737
+Traceback (most recent call last):
+  File "./MotionTracker/motion_tracker.py", line 158, in <module>
+    main()
+  File "./MotionTracker/motion_tracker.py", line 154, in main
+    motion_tracker.run(False)
+  File "./MotionTracker/motion_tracker.py", line 116, in run
+    gray_diff = self._diff_image(self.WAIT_INTERVAL)
+  File "./MotionTracker/motion_tracker.py", line 95, in _diff_image
+    image_one_gray = cv2.cvtColor(image_one, cv2.COLOR_BGR2GRAY)
+cv2.error: /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp:3737: error: (-215) scn == 3 || scn == 4 in function cvtColor
+
+MOTION
+MOTION
+MOTION
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:2502): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:2502): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:2518): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:2518): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:2619): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:2619): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:2641): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:2641): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+OpenCV Error: Assertion failed (scn == 3 || scn == 4) in cvtColor, file /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp, line 3737
+Traceback (most recent call last):
+  File "./MotionTracker/motion_tracker.py", line 158, in <module>
+    main()
+  File "./MotionTracker/motion_tracker.py", line 154, in main
+    motion_tracker.run(False)
+  File "./MotionTracker/motion_tracker.py", line 116, in run
+    gray_diff = self._diff_image(self.WAIT_INTERVAL)
+  File "./MotionTracker/motion_tracker.py", line 95, in _diff_image
+    image_one_gray = cv2.cvtColor(image_one, cv2.COLOR_BGR2GRAY)
+cv2.error: /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp:3737: error: (-215) scn == 3 || scn == 4 in function cvtColor
+
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+OpenCV Error: Assertion failed (scn == 3 || scn == 4) in cvtColor, file /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp, line 3737
+Traceback (most recent call last):
+  File "./MotionTracker/motion_tracker.py", line 158, in <module>
+    main()
+  File "./MotionTracker/motion_tracker.py", line 154, in main
+    motion_tracker.run(False)
+  File "./MotionTracker/motion_tracker.py", line 116, in run
+    gray_diff = self._diff_image(self.WAIT_INTERVAL)
+  File "./MotionTracker/motion_tracker.py", line 95, in _diff_image
+    image_one_gray = cv2.cvtColor(image_one, cv2.COLOR_BGR2GRAY)
+cv2.error: /builddir/build/BUILD/opencv-2.4.9/modules/imgproc/src/color.cpp:3737: error: (-215) scn == 3 || scn == 4 in function cvtColor
+
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+libv4l2: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl S_FMT
+libv4l2: error setting pixformat: Device or resource busy
+libv4l1: error setting pixformat: Device or resource busy
+HIGHGUI ERROR: libv4l unable to ioctl VIDIOCSPICT
+
+
+(python2:3022): GLib-GObject-WARNING **: invalid uninstantiatable type '<unknown>' in cast to 'GstObject'
+
+(python2:3022): GLib-GObject-CRITICAL **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+HTTP POST Failed
+MOTION
+^CTraceback (most recent call last):
+  File "./MotionTracker/motion_tracker.py", line 158, in <module>
+    main()
+  File "./MotionTracker/motion_tracker.py", line 154, in main
+    motion_tracker.run(False)
+  File "./MotionTracker/motion_tracker.py", line 116, in run
+    gray_diff = self._diff_image(self.WAIT_INTERVAL)
+  File "./MotionTracker/motion_tracker.py", line 84, in _diff_image
+    image_one = self.CAM_STREAM.read_frame()
+  File "./MotionTracker/motion_tracker.py", line 40, in read_frame
+    (status, self.LAST_IMAGE) = self.CAM.read()
+KeyboardInterrupt
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
+MOTION
