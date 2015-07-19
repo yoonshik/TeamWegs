@@ -68,25 +68,37 @@ class MotionTracker:
 		
 		(rows, cols) = image.shape
 
+		#Get indices of non-zero pixels
 		(non_z_row, non_z_col) = image.nonzero()
 
 		num_different_pixels = len(non_z_row)
 
 		return (self.NUM_DIFF_THRESHOLD < num_different_pixels)
 
-	def run(self, show):
+	def run(self, show_frames, looping):
 
-		while True:
+		while looping:
 			gray_diff = self._diff_image(self.WAIT_INTERVAL)
 			thresh_img = self._threshold_img(gray_diff)
 	
 			is_motion = self._get_motion_in_diffed(thresh_img)
 
-			if show:
+			if show_frames:
 				if not self._display_img(thresh_img):
-					break
+					return (False, is_motion)
 
 			print(is_motion)
+
+		if show_frames:
+			if not self._display_img(thresh_img):
+				return (False, is_motion)
+
+		return (True, is_motion)
+
+	def check_motion(self):
+		
+		(break_called, is_motion) = self.run(False, False)
+		return is_motion
 
 def main():
 	
