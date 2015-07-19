@@ -5,9 +5,7 @@ class WebLink:
 
 	def __init__(self):
 
-		#self.TARGET_URL = "http://localhost/motion_detected"
-
-		#Developer Override
+		#HTTP Server to POST to 
 		self.TARGET_URL = "http://localhost:6543/motion_detected"
 
 	def rest_alert(self):
@@ -125,7 +123,7 @@ class MotionTracker:
 					break
 
 			#Always save image
-			self.CAM_STREAM.save_peek("./feed.jpg")
+			self.CAM_STREAM.save_peek("./webDisplay/webdisplay/static/captured_images/feed.jpg")
 
 			#Ignore for time lock-out
 			if (time.time() - self.LAST_MOTION_TIME < self.NEW_MOTION_WAIT_SECS):
@@ -139,7 +137,7 @@ class MotionTracker:
 				self.LAST_MOTION_TIME = time.time()	
 
 				#Save file
-				self.CAM_STREAM.save_peek("./motion.jpg")
+				self.CAM_STREAM.save_peek("./webDisplay/webdisplay/static/captured_images/motion.jpg")
 
 				#Send POST
 				self.WEB_LINK.rest_alert()
