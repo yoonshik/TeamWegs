@@ -32,9 +32,10 @@ class dbLink:
 		result = self._run_query(query, parameters)
 	
 	def get_admins(self):
-		query = "SELECT * FROM Users WHERE is_admin = 1"
+		query = "SELECT username FROM Users WHERE is_admin = 1"
 		result = self._run_query(query, [])
 		print(result)
+		return result
 def main():
 	db_link = dbLink()
 	db_link.show_users()
