@@ -188,8 +188,8 @@
   <!-- endbuild-->
   <script>
     function doPoll(){
-      user = document.getElementById('username');
-      pass = document.getElementById('password');
+      user = document.getElementById('username').value;
+      pass = document.getElementById('password').value;
       payload = JSON.stringify({username:user, password:pass})
       $.post('/check_camera', payload, function(data) {
           console.log(data);
