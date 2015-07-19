@@ -13,8 +13,11 @@ webDisplay.egg-info/pbr.json
 webDisplay.egg-info/requires.txt
 webDisplay.egg-info/top_level.txt
 webdisplay/__init__.py
+webdisplay/motion_tracker.py
+webdisplay/sqlLink.py
 webdisplay/tests.py
 webdisplay/views.py
+webdisplay/static/polling.js
 webdisplay/static/pyramid-16x16.png
 webdisplay/static/pyramid.png
 webdisplay/static/theme.css
