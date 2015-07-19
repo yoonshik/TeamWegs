@@ -10,12 +10,14 @@ def my_view(request):
 def motion_detected_view(request):
     return {'project':'webDisplay'}
 
-
-
 #POST Handler for admin status check
-@view_config(route_name='check_camera', renderer='templates/mytemplate.pt')
+@view_config(route_name='check_camera', renderer='json')
 def motion_detected_view(request):
-    return {'project':'webDisplay'}
+    #Check that this is the correct format
+    if request.method != 'POST':
+        return ""
+    print(request.json_body)
+    return {'authenticated':True, 'motion':False}
 
 #POST Handler for admin clicking "YES" on GUI
 @view_config(route_name='alert_users', renderer='json')
