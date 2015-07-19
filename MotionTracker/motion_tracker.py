@@ -153,7 +153,7 @@ def main():
 	motion_tracker = MotionTracker(cam_stream, web_link)
 
 	cam_stream.init_cam()
-	motion_tracker.run(True)
+	motion_tracker.run(False)
 	cam_stream.release_cam()
 
 if __name__ == "__main__":
