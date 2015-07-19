@@ -8,6 +8,8 @@ class MotionTracker:
 		self.CAM = None
 		self.THRESH_MIN = 100
 		self.THRESH_MAX = 255
+		self.WAIT_INTERVAL = .05
+		self.NUM_DIFF_THRESHOLD = 80
 
 	def set_cam(self, cam_id):
 		self.CAM_ID = cam_id
@@ -18,7 +20,7 @@ class MotionTracker:
 	def display_cam(self):
 		while True:
 			
-			image = self._diff_image(.05)
+			image = self._threshold_img(self._diff_image(.05))
 
 			cv2.imshow("Test output", image)
 	
@@ -41,7 +43,7 @@ class MotionTracker:
 
 	def _threshold_img(self, image):
 		
-		thresh_image = cv2.threshold(image, self.THRESH_MIN, self.THRESH_MAX, cv2.THRESH_BINARY)
+		(retval, thresh_image) = cv2.threshold(image, self.THRESH_MIN, self.THRESH_MAX, cv2.THRESH_BINARY)
 		return thresh_image
 
 	def _diff_image(self, sleep_interval):
@@ -64,11 +66,37 @@ class MotionTracker:
 		gray_diff = cv2.absdiff(image_one_gray, image_two_gray)
 
 		return gray_diff
+
+	def _get_imgdiff_val(self, image):
+		
+		(rows, cols) = image.shape
+
+		num_different_pixels = 0
+
+		for row in range(rows):
+			for col in range(cols):
+				if image[row,col] > 0:
+					num_different_pixels += 1
+
+		#Debugging print statement
+		print(num_different_pixels)
+
+		return (self.NUM_DIFF_THRESHOLD < num_different_pixels)
+
+	def run(self):
+
+		while True:
+			gray_diff = self._diff_image(self.WAIT_INTERVAL)
+			thresh_img = self._threshold_img(gray_diff)
+	
+			double_integral = self._get_imgdiff_val(thresh_img)
+
 def main():
 	motion_tracker = MotionTracker()
 
 	motion_tracker.init_cam()
-	motion_tracker.display_cam()
+	motion_tracker.run()
+	#motion_tracker.display_cam()
 	motion_tracker.release_cam()
 
 if __name__ == "__main__":
