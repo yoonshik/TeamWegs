@@ -27,9 +27,19 @@ class CamStreamer:
 		(status, self.LAST_IMAGE) = self.CAM.read()
 		return self.LAST_IMAGE
 
+	def peek_frame(self):
+
+		return self.LAST_IMAGE
+
+	#Save cached frame to a file
+	def save_peek(self, path):
+
+		return cv2.imwrite(path, self.LAST_IMAGE)
+
 class MotionTracker:
 
 	def __init__(self, cam_stream):
+
 		self.CAM_STREAM = cam_stream
 		self.THRESH_MIN = 100
 		self.THRESH_MAX = 255
@@ -37,6 +47,7 @@ class MotionTracker:
 		self.NUM_DIFF_THRESHOLD = 80
 
 	def _display_img(self, image):
+
 		cv2.imshow("Test output", image)
 	
 		key = cv2.waitKey(1) & 0xFF
@@ -94,6 +105,9 @@ class MotionTracker:
 				if not self._display_img(thresh_img):
 					return (False, is_motion)
 
+			if is_motion:
+				self.CAM_STREAM.save_peek("./text.jpg")
+
 			print(is_motion)
 
 		if show_frames:
@@ -114,7 +128,7 @@ def main():
 
 	cam_stream.init_cam()
 	motion_tracker.run(True, True)
-	motion_tracker.release_cam()
+	cam_stream.release_cam()
 
 if __name__ == "__main__":
 	main()
