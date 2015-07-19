@@ -1,5 +1,20 @@
 #!/usr/bin/python2
-import time, cv2
+import time, cv2, requests
+
+class WebLink:
+
+	def __init__(self):
+
+		#self.TARGET_URL = "http://localhost/motion_detected"
+
+		#Developer Override
+		self.TARGET_URL = "http://45.55.94.247:8080/motion_detected"
+
+	def rest_alert(self):
+		try:
+			req = requests.post(self.TARGET_URL)
+		except:
+			print("HTTP POST Failed")
 
 class CamStreamer:
 
@@ -38,13 +53,17 @@ class CamStreamer:
 
 class MotionTracker:
 
-	def __init__(self, cam_stream):
+	def __init__(self, cam_stream, web_link):
 
 		self.CAM_STREAM = cam_stream
+		self.WEB_LINK = web_link
 		self.THRESH_MIN = 100
 		self.THRESH_MAX = 255
 		self.WAIT_INTERVAL = .005
 		self.NUM_DIFF_THRESHOLD = 80
+
+		self.NEW_MOTION_WAIT_SECS = 3
+		self.LAST_MOTION_TIME = 0
 
 	def _display_img(self, image):
 
@@ -93,41 +112,48 @@ class MotionTracker:
 
 		return (self.NUM_DIFF_THRESHOLD < num_different_pixels)
 
-	def run(self, show_frames, looping):
+	def run(self, show_frame):
 
-		while looping:
+		while True:
 			gray_diff = self._diff_image(self.WAIT_INTERVAL)
 			thresh_img = self._threshold_img(gray_diff)
 	
 			is_motion = self._get_motion_in_diffed(thresh_img)
 
-			if show_frames:
+			if show_frame:
 				if not self._display_img(thresh_img):
-					return (False, is_motion)
+					break
 
+			#Always save image
+			self.CAM_STREAM.save_peek("./feed.jpg")
+
+			#Ignore for time lock-out
+			if (time.time() - self.LAST_MOTION_TIME < self.NEW_MOTION_WAIT_SECS):
+				continue 
+
+	
+			#Motion detected
 			if is_motion:
-				self.CAM_STREAM.save_peek("./text.jpg")
 
-			print(is_motion)
+				#Update metadata
+				self.LAST_MOTION_TIME = time.time()	
 
-		if show_frames:
-			if not self._display_img(thresh_img):
-				return (False, is_motion)
+				#Save file
+				self.CAM_STREAM.save_peek("./motion.jpg")
 
-		return (True, is_motion)
+				#Send POST
+				self.WEB_LINK.rest_alert()
 
-	def check_motion(self):
-		
-		(break_called, is_motion) = self.run(False, False)
-		return is_motion
+				print("MOTION")
 
 def main():
 	
 	cam_stream = CamStreamer()
-	motion_tracker = MotionTracker(cam_stream)
+	web_link = WebLink()
+	motion_tracker = MotionTracker(cam_stream, web_link)
 
 	cam_stream.init_cam()
-	motion_tracker.run(True, True)
+	motion_tracker.run(True)
 	cam_stream.release_cam()
 
 if __name__ == "__main__":
