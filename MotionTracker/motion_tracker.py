@@ -4,21 +4,28 @@ import time, cv2
 class CamStreamer:
 
 	def __init__(self):
+
 		self.CAM_ID = 0
 		self.CAM = None
+		
+		self.LAST_IMAGE = 0
 
 	def set_cam(self, cam_id):
+
 		self.CAM_ID = cam_id
 
 	def init_cam(self):
+
 		self.CAM = cv2.VideoCapture(self.CAM_ID)
 
 	def release_cam(self):
+
 		self.CAM.release()
 	
 	def read_frame(self):
-		(status, image) = self.CAM.read()
-		return image
+
+		(status, self.LAST_IMAGE) = self.CAM.read()
+		return self.LAST_IMAGE
 
 class MotionTracker:
 
@@ -106,7 +113,7 @@ def main():
 	motion_tracker = MotionTracker(cam_stream)
 
 	cam_stream.init_cam()
-	motion_tracker.run(True)
+	motion_tracker.run(True, True)
 	motion_tracker.release_cam()
 
 if __name__ == "__main__":
